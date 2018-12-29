@@ -17,7 +17,7 @@ podTemplate(label: label,
         stage('Build and Test Image') {
             container('a-360') {
                 stage('Package into Docker Image') {
-                    sh 'docker build -t invent360/alpha-agent:latest .'
+                    sh 'docker build -t alpha-agent:latest .'
                     sh 'docker tag alpha-agent:latest invent360/alpha-agent:latest'
                 }
             }
