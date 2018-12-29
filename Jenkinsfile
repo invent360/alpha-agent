@@ -26,7 +26,7 @@ podTemplate(label: label,
         stage('Publish Image') {
             container('a-360'){  
                 stage('Publish Image to Docker Registry') {
-                  withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials-id', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
+                  withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials-id', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
                    sh "docker login -u ${env.dockerUsername} -p ${env.dockerPassword}"
                    sh "docker push ${IMAGE_NAME}:${IMAGE_VERSION}"
                 }
